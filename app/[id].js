@@ -13,11 +13,7 @@ const QuestionDetailsPage = () => {
 	if (!question) {
 		return <Text>Question not found!</Text>;
 	}
-	// return (
-	// 	<View style={{backgroundColor: "white", flex: 1}}>
-	// 		<QuestionHeader question={question}/>
-	// 	</View>
-	// )
+	
 	return (
 		<View style={{ backgroundColor: "white", flex: 1 }}>
 			<FlatList
