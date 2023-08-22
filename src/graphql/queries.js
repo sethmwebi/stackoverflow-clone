@@ -1,20 +1,20 @@
 import { gql } from "urql";
 
 export const questionQuery = gql`
-	query MyQuery($sort: QuestionSort!) {
-		questions(sort: $sort) {
-			items {
-				answer_count
-				body_markdown
-				creation_date
-				question_id
-				score
-				tags
-				title
-				view_count
-			}
-		}
-	}
+  query MyQuery($sort: QuestionSort!) {
+    questions(sort: $sort) {
+      items {
+        answer_count
+        body_markdown
+        creation_date
+        question_id
+        score
+        tags
+        title
+        view_count
+      }
+    }
+  }
 `;
 
 export const getQuestionQuery = gql`
@@ -42,6 +42,23 @@ export const getQuestionQuery = gql`
           is_accepted
           question_id
         }
+      }
+    }
+  }
+`;
+
+export const searchQuery = gql`
+  query MyQuery($term: String!){
+    search(term: $term) {
+      items {
+        answer_count
+        body_markdown
+        creation_date
+        question_id
+        score
+        tags
+        title
+        view_count
       }
     }
   }
