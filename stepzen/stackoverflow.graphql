@@ -9,7 +9,11 @@ type Question {
 	tags: [String!]!
 	is_answered: Boolean!
 	link: String!
-	answers: [Answer] @materializer(query: "answers {items}", arguments: [{name: "questionId", field: "question_id"}])
+	answers: [Answer]
+		@materializer(
+			query: "answers {items}"
+			arguments: [{ name: "questionId", field: "question_id" }]
+		)
 }
 
 type QuestionsResponse {
@@ -54,5 +58,9 @@ type Query {
 	answers(questionId: Int!): AnswersResponse
 		@rest(
 			endpoint: "https://api.stackexchange.com/2.3/questions/$questionId/answers?order=desc&sort=votes&site=stackoverflow&filter=!3vByVnFcNyZ01KAKv"
+		)
+	search(term: String!): QuestionsResponse
+		@rest(
+			endpoint: "https://api.stackexchange.com/2.3/search?order=desc&sort=votes&intitle=$term&site=stackoverflow&filter=!0WVkZUE2aUd61A)oNLydqYFhc"
 		)
 }
